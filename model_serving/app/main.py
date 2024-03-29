@@ -18,7 +18,7 @@ async def load_model():
 
 @app.post("/")
 @app.post("/query_text")
-async def homepage(request: Request):
+async def query_text(request: Request):
     payload = await request.body()
     string = payload.decode("utf-8")
     response_q = asyncio.Queue()
@@ -27,7 +27,7 @@ async def homepage(request: Request):
 
 
 @app.post("/query_image")
-async def homepage(request: Request):
+async def query_image(request: Request):
     payload = await request.body()
     string = payload.decode("utf-8")
     response_q = asyncio.Queue()
