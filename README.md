@@ -78,7 +78,7 @@ Evaluation for this complete system is not easy, and there are many different wa
 - Take an evaluation dataset of images that are annotated with description. Calculate how high the image with the "real" description ranks.
 
 However this method has some problems. Mainly, there might be other images in the dataset that match the description better than the original image. It might be easier to evaluate model performance and retrieval individually instead.
-- For the model we can follow e.g. the evaluation metrics from the clip paper (Linear Probe performance)
+- For the model we can follow e.g. the evaluation metrics from the clip paper
 - The ranking should ideally retrieve the images with the highest relevance (based on the model outputs).We can use e.g. mAP to calculate our ranking vs the "true ranking".
 
 ## Potential Improvements
