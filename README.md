@@ -60,9 +60,23 @@ However, if we add the vector of such an image using the `test_image_upload.py` 
 
 <img src="https://i.pinimg.com/474x/34/18/a6/3418a655e5f5784cd2539a6d9a8dbc3a.jpg" height="200">
 
+See [more_examples.md](more_examples.md) for more examples, also illustrating some failure cases.
 
 ## App Configuration
-There is some configuration that can be made in text2image/appconfig, such as the number of results and the default qdrant collection name.
+Some configuration can be made in text2image/appconfig, such as the number of results and the default qdrant collection name.
 
 ## Technology
 The image and text embeddings are both calculated from a huggingface [implementation](https://huggingface.co/docs/transformers/model_doc/clip) of the clip model. I use the pre-trained model files of the `clip-vit-base-patch32` model, without any modifications. The important part in the query processing - (approximate nearest neighbor search) - is handled by [qdrant](https://qdrant.tech/).
+
+## Dataset
+
+I use the validation part of the coco dataset for this demo, as it has nice variety and already existing access to images via URLs. This dataset likely has some shortcomings in terms of coverage, since the images have been selected with some biases (contains mostly close-up photography of well-defined objects). [Here](https://openai.com/research/clip) is some interesting evaluation of the openai clip model that suggests that it has a significantly higher degree of generalization to different domains than models that have been trained on imagenet data.
+
+## Evaluation
+
+Evaluation for this complete system is not easy, and there are many different ways in which the quality of a retrieval may be evaluated. Here is one suggestion:
+- Take an evaluation dataset of images that are annotated with description. Calculate how high the image with the "real" description ranks.
+
+However this method has some problems. Mainly, there might be other images in the dataset that match the description better than the original image. It might be easier to evaluate model performance and retrieval individually instead.
+- For the model we can follow e.g. the evaluation metrics from the clip paper (Linear Probe performance)
+- The ranking should ideally retrieve the images with the highest relevance (based on the model outputs).We can use e.g. mAP to calculate our ranking vs the "true ranking".
