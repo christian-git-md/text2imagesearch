@@ -1,4 +1,4 @@
-There is only 4000 images in this dataset, so likely not 
+There are only 4000 images for this evaluation, so likely many queries cannot be correctly fulfilled.
 
 **A loving couple:**
 Some of these images illustrate nicely the high degree of context that the model understands.
