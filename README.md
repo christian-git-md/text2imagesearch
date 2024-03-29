@@ -80,3 +80,8 @@ Evaluation for this complete system is not easy, and there are many different wa
 However this method has some problems. Mainly, there might be other images in the dataset that match the description better than the original image. It might be easier to evaluate model performance and retrieval individually instead.
 - For the model we can follow e.g. the evaluation metrics from the clip paper (Linear Probe performance)
 - The ranking should ideally retrieve the images with the highest relevance (based on the model outputs).We can use e.g. mAP to calculate our ranking vs the "true ranking".
+
+## Potential Improvements
+The code in this repository is not refined and the apis could use more data validation, documentation and some cleanup of the model serving.
+
+In terms of performance, the first obvious improvement to make is to add a bigger dataset, with more variety to provide more potential matches. Since every image only needs to be evaluated a single time, and there is a large corpus of training data availible (from the internet), a deeper model is likely a good idea.
