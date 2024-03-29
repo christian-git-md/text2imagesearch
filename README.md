@@ -41,7 +41,7 @@ docker run \
  text2image:latest bash
 ```
 
-Optionally add the snapshot of already infered coco_val (4000 images) vectors to the qdrant server. https://drive.google.com/file/d/1_U9tvvfKaqQ6QgziWgLECSOye_Ul43Wo/view?usp=drive_link
+Optionally add the snapshot of already infered coco_val (4000 images) vectors to the qdrant server. [download link](https://drive.google.com/file/d/1_U9tvvfKaqQ6QgziWgLECSOye_Ul43Wo/view?usp=drive_link). See [here](https://qdrant.tech/documentation/tutorials/create-snapshot/) for more info on how to restore from a snapshot
 
 ## Usage
 The api has 2 functionalities:
@@ -63,3 +63,6 @@ However, if we add the vector of such an image using the `test_image_upload.py` 
 
 ## App Configuration
 There is some configuration that can be made in text2image/appconfig, such as the number of results and the default qdrant collection name.
+
+## Technology
+The image and text embeddings are both calculated from a huggingface [implementation](https://huggingface.co/docs/transformers/model_doc/clip) of the clip model. I use the pre-trained model files of the `clip-vit-base-patch32` model, without any modifications. The important part in the query processing - (approximate nearest neighbor search) - is handled by [qdrant](https://qdrant.tech/).
