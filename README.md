@@ -56,10 +56,10 @@ Of course, we are limited by the variety of the images that we have added to our
 
 <img src="http://images.cocodataset.org/val2017/000000402774.jpg" height="100"> <img src="http://images.cocodataset.org/val2017/000000408120.jpg" height="100"> <img src="http://images.cocodataset.org/val2017/000000122046.jpg" height="100"> <img src="http://images.cocodataset.org/val2017/000000333745.jpg" height="100">
 
-However, if we add the vector of such an image using the `test_image_upload` script, this image will indeed be our top result:
+However, if we add the vector of such an image using the `test_image_upload.py` script, this image will indeed be our top result:
 
 <img src="https://i.pinimg.com/474x/34/18/a6/3418a655e5f5784cd2539a6d9a8dbc3a.jpg" height="200">
 
 
 ## App Configuration
-There is some configuration that can be made in text2image/appconfig, such as the number of results and the default collection name.
+There is some configuration that can be made in text2image/appconfig, such as the number of results and the default qdrant collection name.
